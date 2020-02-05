@@ -7,14 +7,14 @@ exports.up = function(knex) {
       .index()
       .references("id")
       .inTable("cars");
+    tbl.integer("total-cars");
+    tbl.integer("sold-cars");
+    tbl.integer("avail-cars");
   });
-  tbl.integer("total-cars");
-  tbl.integer("sold-cars");
-  tbl.integer("avail-cars");
 };
 
 exports.down = function(knex) {
-  return knex.schema.dropTableIfExists("cars");
+  return knex.schema.dropTableIfExists("sales");
 };
 
 // table.bigInteger('AddressId').unsigned().index().references('id').inTable('Address')
